@@ -34,6 +34,7 @@ public class Listing implements Serializable {
 	@OneToOne
 	@JoinColumn(name="order")
 	private Order order;
+	
 	@OneToMany(mappedBy = "listing", fetch = FetchType.LAZY)
 	private List<Product> products;
 	
