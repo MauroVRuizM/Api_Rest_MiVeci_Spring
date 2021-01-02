@@ -10,23 +10,16 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
-@Table(name="People")
-@Entity
+@MappedSuperclass
 public class Person implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	
-	@Id
-	@Column(name="id_person")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Basic(optional=false)
-	private Long idPerson;
 	
 	@Column(name="names")
 	private String names;
@@ -55,27 +48,6 @@ public class Person implements Serializable {
 	@OneToMany(mappedBy = "person", fetch = FetchType.LAZY)
 	@JsonIgnore
 	private List<Address> address;
-
-
-	public Person() {
-		super();
-	}
-
-
-	public Person(Long idPerson) {
-		super();
-		this.idPerson = idPerson;
-	}
-
-
-	public Long getIdPerson() {
-		return idPerson;
-	}
-
-
-	public void setIdPerson(Long idPerson) {
-		this.idPerson = idPerson;
-	}
 
 
 	public String getNames() {
