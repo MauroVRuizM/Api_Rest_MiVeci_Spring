@@ -93,13 +93,14 @@ public class Address implements Serializable {
 	public void setReference(String reference) {
 		this.reference = reference;
 	}
+	
 
-	public Person getPerson() {
-		return person;
+	public Customer getCustomer() {
+		return customer;
 	}
 
-	public void setPerson(Person person) {
-		this.person = person;
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 
 	public Business getBusiness() {
