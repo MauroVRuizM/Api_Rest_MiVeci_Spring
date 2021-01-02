@@ -43,13 +43,17 @@ public class Order implements Serializable {
 	
 	/*FK*/
 	
-	@JoinColumn(name = "fk_client", referencedColumnName = "id_person")
+	@JoinColumn(name = "fk_customer", referencedColumnName = "id_customer")
 	@ManyToOne
-	private Person client;
+	private Customer customer;
 	
 	@OneToOne(mappedBy="listing")
-	  
 	private Listing listing;
+	
+	  
+
+	@OneToOne(mappedBy="paymentmethod")
+	private PaymentMethod paymentmethod;
 
 	//Añadir_Negocio
 
