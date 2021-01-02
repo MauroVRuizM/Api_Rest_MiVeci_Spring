@@ -89,13 +89,21 @@ public class Order implements Serializable {
 	public void setFile(File file) {
 		this.file = file;
 	}
-
-	public Person getClient() {
-		return client;
+	
+	public Customer getCustomer() {
+		return customer;
 	}
 
-	public void setClient(Person client) {
-		this.client = client;
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+	
+	public PaymentMethod getPaymentmethod() {
+		return paymentmethod;
+	}
+
+	public void setPaymentmethod(PaymentMethod paymentmethod) {
+		this.paymentmethod = paymentmethod;
 	}
 
 	public Listing getListing() {
