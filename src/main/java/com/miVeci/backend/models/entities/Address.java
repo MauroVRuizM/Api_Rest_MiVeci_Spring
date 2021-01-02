@@ -38,7 +38,7 @@ public class Address implements Serializable {
 	@Column(name="reference")
 	private String reference;
 	
-	@JoinColumn(name = "fk_person", referencedColumnName = "id_customer")
+	@JoinColumn(name = "fk_customer", referencedColumnName = "id_customer")
 	@ManyToOne
 	private Customer customer;
 	
