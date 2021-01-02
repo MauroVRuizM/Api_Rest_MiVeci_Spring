@@ -43,13 +43,17 @@ public class Order implements Serializable {
 	
 	/*FK*/
 	
-	@JoinColumn(name = "fk_client", referencedColumnName = "id_person")
+	@JoinColumn(name = "fk_customer", referencedColumnName = "id_customer")
 	@ManyToOne
-	private Person client;
+	private Customer customer;
 	
 	@OneToOne(mappedBy="listing")
-	  
 	private Listing listing;
+	
+	  
+
+	@OneToOne(mappedBy="paymentmethod")
+	private PaymentMethod paymentmethod;
 
 	//Añadir_Negocio
 
@@ -85,13 +89,21 @@ public class Order implements Serializable {
 	public void setFile(File file) {
 		this.file = file;
 	}
-
-	public Person getClient() {
-		return client;
+	
+	public Customer getCustomer() {
+		return customer;
 	}
 
-	public void setClient(Person client) {
-		this.client = client;
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+	
+	public PaymentMethod getPaymentmethod() {
+		return paymentmethod;
+	}
+
+	public void setPaymentmethod(PaymentMethod paymentmethod) {
+		this.paymentmethod = paymentmethod;
 	}
 
 	public Listing getListing() {

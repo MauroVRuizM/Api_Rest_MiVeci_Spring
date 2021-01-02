@@ -49,6 +49,9 @@ public class Person implements Serializable {
 	@JsonIgnore
 	private List<Address> address;
 
+	@OneToMany(mappedBy = "person", fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<Order> order;
 
 	public String getNames() {
 		return names;
@@ -127,6 +130,16 @@ public class Person implements Serializable {
 
 	public void setAddress(List<Address> address) {
 		this.address = address;
+	}
+
+
+	public List<Order> getOrder() {
+		return order;
+	}
+
+
+	public void setOrder(List<Order> order) {
+		this.order = order;
 	}
 	
 

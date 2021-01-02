@@ -38,14 +38,13 @@ public class Address implements Serializable {
 	@Column(name="reference")
 	private String reference;
 	
-	@JoinColumn(name = "fk_person", referencedColumnName = "id_person")
+	@JoinColumn(name = "fk_person", referencedColumnName = "id_customer")
 	@ManyToOne
-	private Person person;
+	private Customer customer;
 	
 	@OneToOne(mappedBy="business")
 	  
 	private Business business;
-	  
 	public Address() {
 		super();
 	}
@@ -102,6 +101,15 @@ public class Address implements Serializable {
 	public void setPerson(Person person) {
 		this.person = person;
 	}
+
+	public Business getBusiness() {
+		return business;
+	}
+
+	public void setBusiness(Business business) {
+		this.business = business;
+	}
+	
 	
 	
 	

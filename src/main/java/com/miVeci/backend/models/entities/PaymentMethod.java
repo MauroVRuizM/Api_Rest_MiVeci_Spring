@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -28,7 +29,10 @@ public class PaymentMethod implements Serializable {
 	
 	@Column(name="quantity")
 	private Long quantity;
-
+	
+	@OneToOne(mappedBy="order")
+	private Order order;
+	
 	public PaymentMethod() {
 		super();
 	}
@@ -61,6 +65,15 @@ public class PaymentMethod implements Serializable {
 	public void setQuantity(Long quantity) {
 		this.quantity = quantity;
 	}
+
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
+	}
+	
 	
 	
 
