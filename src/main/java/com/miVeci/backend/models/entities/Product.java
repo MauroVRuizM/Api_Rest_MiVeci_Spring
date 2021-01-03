@@ -46,6 +46,10 @@ public class Product implements Serializable {
 	@JoinColumn(name="fk_business",referencedColumnName="id_business")
 	@ManyToOne
 	private Business business;
+	
+	@JoinColumn(name="fk_product",referencedColumnName="id_listing")
+	@ManyToOne
+	private Listing listing;
 
 	public Product() {
 		super();
