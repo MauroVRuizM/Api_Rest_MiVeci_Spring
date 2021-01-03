@@ -45,11 +45,11 @@ public class Person implements Serializable {
 	
 	/*FK*/
 	
-	@OneToMany(mappedBy = "person", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
 	@JsonIgnore
 	private List<Address> address;
 
-	@OneToMany(mappedBy = "person", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
 	@JsonIgnore
 	private List<Order> order;
 

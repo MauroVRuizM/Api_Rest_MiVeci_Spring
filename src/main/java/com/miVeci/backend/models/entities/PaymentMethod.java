@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -30,8 +31,9 @@ public class PaymentMethod implements Serializable {
 	@Column(name="quantity")
 	private Long quantity;
 	
-	@OneToOne(mappedBy="order")
-	private Order order;
+	 @OneToOne
+	 @JoinColumn(name = "fk_order", updatable = false, nullable = false)
+	 private Order order;
 	
 	public PaymentMethod() {
 		super();
