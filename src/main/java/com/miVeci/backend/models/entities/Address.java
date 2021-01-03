@@ -42,9 +42,10 @@ public class Address implements Serializable {
 	@ManyToOne
 	private Customer customer;
 	
-	@OneToOne(mappedBy="business")
-	  
-	private Business business;
+	@OneToOne
+	 @JoinColumn(name = "fk_business", updatable = false, nullable = false)
+	 private Business business;
+	
 	public Address() {
 		super();
 	}

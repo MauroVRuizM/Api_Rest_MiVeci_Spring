@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -59,7 +60,7 @@ public class Business implements Serializable {
 	@ManyToOne
 	private Trader trader;
 	
-	@OneToOne(mappedBy="business")
+	@OneToOne(mappedBy="business",cascade = CascadeType.ALL)
 	private Address address;
 	
 	@OneToMany(mappedBy="business",fetch=FetchType.LAZY)

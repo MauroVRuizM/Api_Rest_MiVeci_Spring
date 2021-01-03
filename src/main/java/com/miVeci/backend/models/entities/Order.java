@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.util.Calendar;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -47,12 +48,10 @@ public class Order implements Serializable {
 	@ManyToOne
 	private Customer customer;
 	
-	@OneToOne(mappedBy="listing")
-	private Listing listing;
+	 @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+	 private Listing listing;
 	
-	  
-
-	@OneToOne(mappedBy="paymentmethod")
+	@OneToOne(mappedBy="order",cascade = CascadeType.ALL)
 	private PaymentMethod paymentmethod;
 
 	//Añadir_Negocio

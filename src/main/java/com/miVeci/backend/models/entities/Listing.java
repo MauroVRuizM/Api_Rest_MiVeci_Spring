@@ -31,9 +31,9 @@ public class Listing implements Serializable {
 	@Column(name="total_pay")
 	private Long totalPay;
 
-	@OneToOne
-	@JoinColumn(name="order")
-	private Order order;
+	 @OneToOne
+	 @JoinColumn(name = "fk_order", updatable = false, nullable = false)
+	 private Order order;
 	
 	@OneToMany(mappedBy = "listing", fetch = FetchType.LAZY)
 	private List<Product> products;
