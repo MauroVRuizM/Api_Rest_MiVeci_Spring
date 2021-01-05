@@ -46,8 +46,7 @@ public class BusinessService implements IBusinessService {
 	@Override
 	@Transactional(readOnly=true)
 	public List<Business> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return (List<Business>) dao.findAll();
 	}
 
 }
