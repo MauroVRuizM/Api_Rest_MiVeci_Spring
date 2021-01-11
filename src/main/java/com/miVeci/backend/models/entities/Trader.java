@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,6 +13,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Table(name="Traders")
 @Entity
@@ -26,8 +29,8 @@ public class Trader extends Person implements Serializable {
 	
 	@Column(name="legal")
 	private String legal;
-
 	@OneToMany(mappedBy="trader",fetch=FetchType.LAZY)
+	@JsonIgnore
 	private List<Business> businesses;
 
 	public Trader() {

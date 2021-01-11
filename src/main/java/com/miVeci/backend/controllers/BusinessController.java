@@ -26,7 +26,7 @@ public class BusinessController {
 	private IBusinessService service;
 	
 	@GetMapping("/{id}")
-	public Business retrieve(@PathVariable Long id) {
+	public Business retrieve(@PathVariable(value = "id") Long id) {
 		return service.findById(id);
 	}
 	

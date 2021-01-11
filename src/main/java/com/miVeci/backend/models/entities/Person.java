@@ -3,6 +3,7 @@ package com.miVeci.backend.models.entities;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.FetchType;
 import javax.persistence.MappedSuperclass;
@@ -39,7 +40,7 @@ public class Person implements Serializable {
 	
 	/*FK*/
 	
-	@OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "customer", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	@JsonIgnore
 	private List<Address> address;
 

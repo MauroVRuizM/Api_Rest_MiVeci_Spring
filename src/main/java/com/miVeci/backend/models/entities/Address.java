@@ -3,6 +3,7 @@ package com.miVeci.backend.models.entities;
 import java.io.Serializable;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Table(name="Addresses")
@@ -40,11 +43,12 @@ public class Address implements Serializable {
 	
 	@JoinColumn(name = "fk_customer", referencedColumnName = "id_customer")
 	@ManyToOne
+	@JsonIgnore
 	private Customer customer;
 	
-	@OneToOne
-	 @JoinColumn(name = "fk_business", updatable = false, nullable = false)
-	 private Business business;
+	@OneToOne(mappedBy="address",cascade = CascadeType.ALL)
+	@JsonIgnore
+	private Business business;
 	
 	public Address() {
 		super();

@@ -17,6 +17,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Table(name="Businesses")
 @Entity
 public class Business implements Serializable {
@@ -60,8 +62,9 @@ public class Business implements Serializable {
 	@ManyToOne
 	private Trader trader;
 	
-	@OneToOne(mappedBy="business",cascade = CascadeType.ALL)
-	private Address address;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "fk_address")
+	 private Address address;
 	
 	@OneToMany(mappedBy="business",fetch=FetchType.LAZY)
 	private List<Product> products;

@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Table(name="Products")
 @Entity
 public class Product implements Serializable {
@@ -45,10 +47,12 @@ public class Product implements Serializable {
 	
 	@JoinColumn(name="fk_business",referencedColumnName="id_business")
 	@ManyToOne
+	@JsonIgnore
 	private Business business;
 	
 	@JoinColumn(name="fk_product",referencedColumnName="id_listing")
 	@ManyToOne
+	@JsonIgnore
 	private Listing listing;
 
 	public Product() {
