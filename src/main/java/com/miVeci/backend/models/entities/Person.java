@@ -3,10 +3,13 @@ package com.miVeci.backend.models.entities;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -39,9 +42,9 @@ public class Person implements Serializable {
 	
 	/*FK*/
 	
-	@OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
-	@JsonIgnore
-	private List<Address> address;
+	@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_address")
+     private Address address;
 
 	@OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
 	@JsonIgnore
@@ -117,12 +120,12 @@ public class Person implements Serializable {
 	}
 
 
-	public List<Address> getAddress() {
+	public Address getAddress() {
 		return address;
 	}
 
 
-	public void setAddress(List<Address> address) {
+	public void setAddress(Address address) {
 		this.address = address;
 	}
 
